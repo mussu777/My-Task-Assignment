@@ -8,13 +8,15 @@ Manage your day with timers, scheduled reminders, and a clean UI that keeps co
 ## 🚀 Features
 
 - 📝 **Add, edit & delete** tasks with an intuitive interface  
-- 🕒 **Timer‑based notifications** that alert you the instant time’s up  
+- 🕒 **Timer‑based notifications** to alert you when time's up  
 - 🗓️ **Scheduled notifications** for future reminders  
-- 📂 **Two‑tab view** – ✅ Completed | ❌ Incomplete  
-- 💾 **AsyncStorage** persistence so your tasks survive app restarts  
+- ❗ **Task prioritization** – mark tasks as **Urgent**, **important**, or **less important** importance  
+- 🔕 **Cancel notifications** when tasks are marked complete  
+- 📂 **Two‑tab view** – ✅ **Completed** | ❌ **Incomplete**  
+- 💾 **AsyncStorage** for persistent local task saving  
 - 🚨 **Custom alerts** after every add / edit / delete action  
-- 🧭 **Expo Router** for smooth file‑based navigation  
-- 🌍 Runs on **Android, iOS & Web**
+- 🧭 **Expo Router** for clean file‑based navigation  
+- 🌍 Runs on **Android**, **iOS**, and **Web**
 
 ---
 
