@@ -22,7 +22,8 @@ Manage your day with timers, scheduled reminders, and a clean UI that keeps co
 
 | Home | Task Details |
 | :---: | :---: |
-| ![Home Screen](assets/screenshots/home.jpg) | ![Task Added](assets/screenshots/Task.jpg) | ![Completed Task](assets/screenshots/completed.jpg) |
+| ![Home Screen](assets/screenshots/home.jpg) | ![Task Added](assets/screenshots/Task.jpg) |
+| ![Completed Task](assets/screenshots/completed.jpg) |
 
 
 
