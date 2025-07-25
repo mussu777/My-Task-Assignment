@@ -30,6 +30,8 @@ Notifications.setNotificationHandler({
 });
 
 const Index = () => {
+
+
   // State
   const [task, setTask] = useState("");
   const [timer, setTimer] = useState("");
@@ -41,7 +43,6 @@ const Index = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [successAlertMessage, setSuccessAlertMessage] = useState("");
-  // Add ticking state for live timer
   const [tick, setTick] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -52,6 +53,8 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
+
+
   useEffect(() => {
     (async () => {
       const { status } = await Notifications.requestPermissionsAsync();
@@ -61,6 +64,8 @@ const Index = () => {
       }
     })();
   }, []);
+
+
 
   useEffect(() => {
     loadTasks()
@@ -74,12 +79,15 @@ const Index = () => {
       });
   }, []);
 
+
+
   useEffect(() => {
     saveTasks(tasks).catch((e) => console.log("Failed to save tasks", e));
   }, [tasks]);
 
-  // Effect to check for timer end and show notification
 
+
+  // Effect to check for timer end and show notification
   useEffect(() => {
     tasks.forEach((t) => {
       if (!t.completed && !t.notified && t.endTime && Date.now() >= t.endTime) {
@@ -100,10 +108,13 @@ const Index = () => {
     });
   }, [tick, tasks]);
 
+
+
   // Loader
   if (loading) {
     return <PageLoader />;
   }
+
 
   // Add a new task
   const handleAddTask = async () => {
@@ -190,6 +201,7 @@ const Index = () => {
     setShowSuccessAlert(true);
   };
 
+
   // Toggle task completion
   const handleToggleComplete = async (id) => {
     const toggledTask = tasks.find((t) => t.id === id);
@@ -211,10 +223,12 @@ const Index = () => {
           sound: true,
           priority: Notifications.AndroidNotificationPriority.HIGH,
         },
-        trigger: null, // Immediate notification
+        trigger: null, 
       });
     }
   };
+
+
 
   // Delete a task
   const handleDelete = async (id) => {
@@ -226,7 +240,9 @@ const Index = () => {
     setShowSuccessAlert(true);
   };
 
-  // Edit a task (load into form but do not remove from list)
+
+
+  // Edit a task 
   const handleEdit = (id) => {
     const t = tasks.find((t) => t.id === id);
     if (t) {
@@ -236,6 +252,8 @@ const Index = () => {
       setEditTaskId(t.id);
     }
   };
+
+
 
   // Get remaining time in mm:ss
   const getRemaining = (t) => {
@@ -250,6 +268,8 @@ const Index = () => {
     return `${min}:${sec}`;
   };
 
+
+
   // Filter tasks by tab
   const filteredTasks = tasks
     .filter((t) => t.completed === (tab === "complete"))
@@ -263,6 +283,8 @@ const Index = () => {
   //   const timer = setTimeout(() => setLoading(false), 1000);
   //   return () => clearTimeout(timer);
   // }, []);
+
+
 
   // --- UI ---
   return (
@@ -305,7 +327,6 @@ const Index = () => {
               ))}
             </Picker>
           </View>
-          {/* Custom chevron for iOS (Android shows its own) */}
           {Platform.OS === "ios" && (
             <Feather
               name="chevron-down"
@@ -319,6 +340,7 @@ const Index = () => {
         {/* Add Task Button */}
         <AddTaskButton onPress={handleAddTask} />
       </View>
+
       {/* Tabs */}
       <View style={styles.tabsContainer}>
         {TABS.map((t) => (
@@ -336,6 +358,7 @@ const Index = () => {
           </TouchableOpacity>
         ))}
       </View>
+
       {/* Task List with FlatList for scrollable, performant rendering */}
       <FlatList
         style={styles.taskList}
@@ -378,6 +401,7 @@ const Index = () => {
                 </Text>
               </View>
             </View>
+
             {/* Only show edit button if task is not completed */}
             {!t.completed && (
               <TouchableOpacity
@@ -410,6 +434,7 @@ const Index = () => {
         showsVerticalScrollIndicator={false}
       />
 
+      {/* Custom Alerts */}
       <CustomAlert
         visible={showAlert}
         title="Missing Fields"

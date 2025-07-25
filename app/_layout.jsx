@@ -6,8 +6,6 @@ export default function RootLayout() {
       <Stack.Screen
         name="index"
         options={{
-          // title: "My Task App",
-          // headerTitleAlign: "center",
           headerShown: false,
         }}
       />
