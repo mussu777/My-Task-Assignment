@@ -1,4 +1,4 @@
-# 📱 My Task App
+# 📱 My Task App / Mustak Ansary
 
 A beautifully simple yet powerful **Task‑App** built with [React Native](https://reactnative.dev/) and [Expo](https://expo.dev/).  
 Manage your day with timers, scheduled reminders, and a clean UI that keeps completed and pending tasks neatly separated.
@@ -57,5 +57,21 @@ cd My-Task-Assignment
 # 3. Install dependencies
 npm install         # or: yarn
 
-# 4. Start the development server
-npm start           # opens Expo DevTools
+# 4. Do a build locally 
+npx expo prebuild
+npx expo run:android or npx expo run:ios
+
+# 5. Or do EAS build
+eas login 
+eas build:configure
+eas build --profile preview --platform android or ios
+```
+---
+
+
+
+## 🤔 Challenges Faced
+
+One of the key challenges I encountered was handling **scheduled notifications** using `expo-notifications`. While the notifications work reliably when the app is in the **foreground**, their behavior in the **background** or when the app is **killed** was inconsistent.
+
+I tried several configurations and workarounds to make them work smoothly, but due to platform-level restrictions (especially on Android), scheduled notifications would **sometimes not trigger** when the app was closed. This remains a known limitation and may require using native modules or alternate strategies in future versions.
